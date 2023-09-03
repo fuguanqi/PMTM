@@ -1,8 +1,8 @@
 clc;clear;
 mac=2;
 j=10;
-d=1;
-mt=3;
+d=2;
+mt=9;
 r=0;
 
 data=importdata (strcat('INSTANCES\m',num2str(mac),'_j',num2str(j), ...

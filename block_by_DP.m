@@ -79,7 +79,7 @@ for i=1:numel(old_block)
     if pre_prior>=new_job_prior && new_job_prior>cur_prior
         duration=duration+p_i(new_job)*acc_deter;
         acc_deter=acc_deter*deter(m_id,new_job);
-        new_block=[old_block(1:i-1),new_job,old_block(i:numel(end))];
+        new_block=[new_block,new_job];
     end
     if (acc_deter-1)*p_i(j_id)>mt(m_id)
         duration=Inf;
@@ -89,16 +89,19 @@ for i=1:numel(old_block)
     end
     duration=duration+p_i(j_id)*acc_deter;
     acc_deter=acc_deter*deter(m_id,j_id);
+    new_block=[new_block,j_id];
     if i==numel(old_block) && new_job_prior<=cur_prior
-        new_block=[old_block,new_job];
+        new_block=[new_block,new_job];
         duration=duration+p_i(new_job)*acc_deter;
         if (acc_deter-1)*p_i(new_job)>mt(m_id)
             isFull=true;
+            duration=Inf;
             return;
         end
         acc_deter=acc_deter*deter(m_id,new_job);
         
     end 
+    pre_prior=cur_prior;
 end
 
 end
