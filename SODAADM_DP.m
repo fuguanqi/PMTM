@@ -1,7 +1,7 @@
 function res = SODAADM_DP(prob)
 
 n=prob.n;
-m=prob.m;
+mac=prob.mac;
 
 
 Dim=n-1+n;
@@ -10,7 +10,7 @@ Data.number_startpoints=2*(Dim+1);
 Data.dim=Dim;
 Data.xlow=[ones(1,Dim)];
 
-Data.xup=[2:n,repelem([m],n)];
+Data.xup=[2:n,repelem([mac],n)];
 Data.integer=[1:Dim]; %indices of integer variables
 Data.continuous=[]; %indices of continuous variables
 InitialPoints = slhd(Data);
@@ -35,7 +35,7 @@ Data.S(:,Data.integer)=round(Data.S(:,Data.integer));
 save (strcat('temp_data\Data1.mat'));
 
 
-Iteration=1000;
+Iteration=3000;
 
 [xbest, fbest] = miso('datainput_dp',Iteration, 'rbf_c', [], 'slhd', 'cp4',[],Data); %SODA-ADM
 

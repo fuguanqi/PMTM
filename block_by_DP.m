@@ -2,7 +2,7 @@ function obj = block_by_DP(job_seq,assign,prob)
 
 obj=0;
 
-for i=1:prob.m
+for i=1:prob.mac
     machines(i).jobs=[];
 end
 
@@ -12,11 +12,11 @@ for i=1:prob.n
 end
 
 max_makespan=0;
-for i=1:prob.m
+for i=1:prob.mac
     if numel(machines(i).jobs)==0
         continue;
     end
-    memos=zeros(numel(machines(i).jobs));
+    memos=zeros(numel(machines(i).jobs),1);
     for k=1:numel(machines(i).jobs)
         memos(k)=dp(i,machines(i).jobs(1:k),prob,memos);
     end
