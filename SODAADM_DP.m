@@ -1,7 +1,15 @@
-function res = SODAADM_DP(prob)
+function [xbest, fbest] = SODAADM_DP(prob)
 
 n=prob.n;
 mac=prob.mac;
+
+
+Data.mac=mac;
+Data.n=n;
+Data.j=n/mac;
+Data.d=prob.d;
+Data.r=prob.r;
+Data.mt=prob.mt;
 
 
 Dim=n-1+n;
@@ -35,13 +43,13 @@ Data.S(:,Data.integer)=round(Data.S(:,Data.integer));
 save (strcat('temp_data\Data1.mat'));
 
 
-Iteration=Dim*10;
+Iteration=n*15;
 
 [xbest, fbest] = miso('datainput_dp',Iteration, 'rbf_c', [], 'slhd', 'cp4',[],Data); %SODA-ADM
 
 % [xbest, fbest] = miso('datainput_dp',Iteration, 'rbf_c', [], 'slhd', 'cp6',[],Data); %SODA-ADM-DP
 
-res=zeros(Iteration,2);
+
 
 end
 
