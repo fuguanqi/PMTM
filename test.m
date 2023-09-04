@@ -27,9 +27,9 @@ for i=1:numel(mac_array)
             prob.deter=data(n+3+mac:end);
             prob.deter=reshape(prob.deter,[mac,n]);
             
-            parfor aa=1:10
-                [xbest, fbest] = SODAADM_DP(prob);
-            end
+
+            SODAADM_DP(prob);
+
         end
     end
 end

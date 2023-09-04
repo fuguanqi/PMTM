@@ -1,4 +1,4 @@
-function [xbest, fbest] = SODAADM_DP(prob)
+function SODAADM_DP(prob)
 
 n=prob.n;
 mac=prob.mac;
@@ -44,9 +44,9 @@ save (strcat('temp_data\Data1.mat'));
 
 
 Iteration=n*15;
-
-[xbest, fbest] = miso('datainput_dp',Iteration, 'rbf_c', [], 'slhd', 'cp4',[],Data); %SODA-ADM
-
+parfor aa=1:16
+    miso('datainput_dp',Iteration, 'rbf_c', [], 'slhd', 'cp4',[],Data); %SODA-ADM
+end
 % [xbest, fbest] = miso('datainput_dp',Iteration, 'rbf_c', [], 'slhd', 'cp6',[],Data); %SODA-ADM-DP
 
 
