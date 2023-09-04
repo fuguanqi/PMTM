@@ -35,10 +35,11 @@ Data.S(:,Data.integer)=round(Data.S(:,Data.integer));
 save (strcat('temp_data\Data1.mat'));
 
 
-Iteration=3000;
+Iteration=Dim*10;
 
 [xbest, fbest] = miso('datainput_dp',Iteration, 'rbf_c', [], 'slhd', 'cp4',[],Data); %SODA-ADM
 
+% [xbest, fbest] = miso('datainput_dp',Iteration, 'rbf_c', [], 'slhd', 'cp6',[],Data); %SODA-ADM-DP
 
 res=zeros(Iteration,2);
 

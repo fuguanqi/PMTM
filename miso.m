@@ -74,7 +74,6 @@ end
 S=Data.S;
 %load optimization problem data from user-defined file
 Data.objfunction=datafile; % load problem data
-Data.S=S;
 Data.S(:,Data.integer)=round(Data.S(:,Data.integer));
 
 
@@ -223,8 +222,8 @@ elseif strcmp(Data.sampling, 'cp3') %target value strategy
     sol =  cp3(Data);
 elseif strcmp(Data.sampling, 'cp4') %target value strategy   
     sol =  cp4(Data);
-elseif strcmp(Data.sampling, 'tv') %target value strategy
-    sol = tv(Data);
+elseif strcmp(Data.sampling, 'cp6') %target value strategy
+    sol = cp6(Data);
 elseif strcmp(Data.sampling,'ms') %surface minimum
     sol = ms(Data);
 elseif strcmp(Data.sampling, 'rs') %random candidates by perturbing all variables
