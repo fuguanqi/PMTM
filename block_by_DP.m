@@ -77,6 +77,12 @@ for i=1:numel(old_block)
     j_id=old_block(i);
     cur_prior=p_i(j_id)/(deter(m_id,j_id)-1);
     if pre_prior>=new_job_prior && new_job_prior>cur_prior
+        if (acc_deter-1)*p_i(new_job)>mt(m_id)
+            isFull=true;
+            new_block=[old_block,new_job];
+            duration=Inf;
+            return;
+        end
         duration=duration+p_i(new_job)*acc_deter;
         acc_deter=acc_deter*deter(m_id,new_job);
         new_block=[new_block,new_job];

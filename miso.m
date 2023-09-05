@@ -253,7 +253,7 @@ while ii<maxeval
     ii=ii+5;
 end
 data_to_write(:,end+1)=[sol.cur_best(end);sol.T(end)];
-writematrix(data_to_write,strcat('results/m',num2str(Data.prob.mac),'_j',num2str(Data.prob.j), ...
+writematrix(data_to_write,strcat('results/m',num2str(Data.prob.mac),'_j',num2str(Data.prob.n/Data.prob.mac), ...
     '_d',num2str(Data.prob.d),'_mt',num2str(Data.prob.mt),'_r',num2str(Data.prob.r),'.txt'),'WriteMode','append');
 
 end

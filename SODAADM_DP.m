@@ -39,7 +39,7 @@ mac=prob.mac;
     % save (strcat('temp_data\Data1.mat'));
 
 
-    Iteration=min(n*15,5000);
+    Iteration=min(n*12,3000);
 
     miso('datainput_dp',Iteration, 'rbf_c', [], 'slhd', 'cp4',[],Data); %SODA-ADM
 
