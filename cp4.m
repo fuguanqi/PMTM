@@ -206,7 +206,7 @@ while Data.m < Data.maxeval  %do until budget of function evaluations exhausted
     
     clear CandPoint;
     
-    fnew = feval(Data.objfunction,xnew); %new function value                    %要改
+    fnew = feval(Data.objfunction,xnew,Data.prob); %new function value                    %要改
     
     Data.m=Data.m+1; %update the number of function evaluations
     m=Data.m;

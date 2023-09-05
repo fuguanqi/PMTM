@@ -206,7 +206,7 @@ Data.T = zeros(Data.m,1);
 fevalt = tic;
 pre_val=Inf;
 for ii = 1: Data.m
-    Data.Y(ii)=feval(Data.objfunction, Data.S(ii,:));     %Data.Y(ii)=Data.objfunction(Data.S(ii,:));  
+    Data.Y(ii)=feval(Data.objfunction, Data.S(ii,:),Data.prob);     %Data.Y(ii)=Data.objfunction(Data.S(ii,:));  
     Data.cur_best(ii)=min(pre_val,Data.Y(ii));
     pre_val=Data.cur_best(ii);
     Data.T(ii) = toc(fevalt);

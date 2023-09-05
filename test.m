@@ -20,15 +20,16 @@ for i=1:numel(mac_array)
             prob.d=d;
             prob.mt=mt;
             prob.r=r;
-            
+
             prob.mac=mac;
             prob.p_i=data(3:n+2);
             prob.mt_j=data(n+3:n+2+mac);
             prob.deter=data(n+3+mac:end);
             prob.deter=reshape(prob.deter,[mac,n]);
-            
 
-            SODAADM_DP(prob);
+            parfor aa=1:8
+                SODAADM_DP(prob);
+            end
 
         end
     end

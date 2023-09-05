@@ -1,8 +1,8 @@
 
-function y=datainput_dp(xx) %objective function
+function y=datainput_dp(xx,prob) %objective function
 x=xx'; % make sure vector is row vector
-load (strcat('temp_data\Data1.mat'));
-
+% load (strcat('temp_data\Data1.mat'));
+n=prob.n;
 job_seq=[0,1,0];
 assign=zeros(n,1);
 
