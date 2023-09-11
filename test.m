@@ -7,7 +7,7 @@ mt_array=[3,9];
 
 r=0;
 j=20;
-for aa=1:8
+for aa=1:7
     for i=1:numel(mac_array)
         for k=1:numel(d_array)
             for p=1:numel(mt_array)
