@@ -79,14 +79,15 @@ while Data.m < Data.maxeval  %do until budget of function evaluations exhausted
         end
         for jj =1:Data.dim %go through all dimensions and perturb variable values as necessary
             if ar(jj)==1
-                if ismember(jj,Data.integer) %integer perturbation has to be at least 1 unit
+                if jj>=Data.integer(1) && jj<=Data.integer(end) 
+%                 if ismember(jj,Data.integer) %integer perturbation has to be at least 1 unit 
                     rr=randn(1);
                     s_std=sign(rr)*max(1,abs(cp.sigma_stdev(1,jj)*rr));
                 else
                     s_std= cp.sigma_stdev(1,jj)*randn(1);
                 end
                 CandPoint1(ii,jj) = CandPoint1(ii,jj) +s_std;
-                if ismember(jj,Data.category)
+                if jj>=Data.category(1) && jj<=Data.category(end) 
                     if CandPoint1(ii,jj) < Data.xlow(jj)
                         CandPoint1(ii,jj) = Data.xup(jj)- (Data.xlow(jj)-CandPoint1(ii,jj));
                         if CandPoint1(ii,jj) < Data.xlow(jj)
@@ -124,14 +125,15 @@ while Data.m < Data.maxeval  %do until budget of function evaluations exhausted
         end
         for jj =1:Data.dim %go through all dimensions and perturb variable values as necessary
             if ar(jj)==1
-                if ismember(jj,Data.integer) %integer perturbation has to be at least 1 unit 
+                if jj>=Data.integer(1) && jj<=Data.integer(end) 
+%                 if ismember(jj,Data.integer) %integer perturbation has to be at least 1 unit 
                     rr=randn(1);
                     s_std=sign(rr)*max(1,abs(cp.sigma_stdev(2,jj)*rr));
                 else
                     s_std= cp.sigma_stdev(2,jj)*randn(1);
                 end
                 CandPoint2(ii,jj) = CandPoint2(ii,jj) +s_std;
-                if ismember(jj,Data.category)
+                if jj>=Data.category(1) && jj<=Data.category(end) 
                     if CandPoint2(ii,jj) < Data.xlow(jj)
                         CandPoint2(ii,jj) = Data.xup(jj)- (Data.xlow(jj)-CandPoint2(ii,jj));
                         if CandPoint2(ii,jj) < Data.xlow(jj)
@@ -169,14 +171,15 @@ while Data.m < Data.maxeval  %do until budget of function evaluations exhausted
         end
         for jj =1:Data.dim %go through all dimensions and perturb variable values as necessary
             if ar(jj)==1
-                if ismember(jj,Data.integer) %integer perturbation has to be at least 1 unit 
+                if jj>=Data.integer(1) && jj<=Data.integer(end) 
+%                 if ismember(jj,Data.integer) %integer perturbation has to be at least 1 unit 
                     rr=randn(1);
                     s_std=sign(rr)*max(1,abs(cp.sigma_stdev(3,jj)*rr));
                 else
                     s_std= cp.sigma_stdev(3,jj)*randn(1);
                 end
                 CandPoint3(ii,jj) = CandPoint3(ii,jj) +s_std;
-                if ismember(jj,Data.category)
+                if jj>=Data.category(1) && jj<=Data.category(end) 
                     if CandPoint3(ii,jj) < Data.xlow(jj)
                         CandPoint3(ii,jj) = Data.xup(jj)- (Data.xlow(jj)-CandPoint3(ii,jj));
                         if CandPoint3(ii,jj) < Data.xlow(jj)
@@ -214,14 +217,15 @@ while Data.m < Data.maxeval  %do until budget of function evaluations exhausted
         end
         for jj =1:Data.dim %go through all dimensions and perturb variable values as necessary
             if ar(jj)==1
-                if ismember(jj,Data.integer) %integer perturbation has to be at least 1 unit 
+                if jj>=Data.integer(1) && jj<=Data.integer(end) 
+%                 if ismember(jj,Data.integer) %integer perturbation has to be at least 1 unit 
                     rr=randn(1);
                     s_std=sign(rr)*max(1,abs(cp.sigma_stdev(4,jj)*rr));
                 else
                     s_std= cp.sigma_stdev(4,jj)*randn(1);
                 end
                 CandPoint4(ii,jj) = CandPoint4(ii,jj) +s_std;
-                if ismember(jj,Data.category)
+                if jj>=Data.category(1) && jj<=Data.category(end) 
                     if CandPoint4(ii,jj) < Data.xlow(jj)
                         CandPoint4(ii,jj) = Data.xup(jj)- (Data.xlow(jj)-CandPoint4(ii,jj));
                         if CandPoint4(ii,jj) < Data.xlow(jj)
