@@ -15,6 +15,7 @@ mac=prob.mac;
 
     Data.xup=[2:n,repelem([mac],n)];
     Data.integer=[1:Dim]; %indices of integer variables
+    Data.category=[n:Dim]; %indices of category integer variables
     Data.continuous=[]; %indices of continuous variables
 
     InitialPoints = slhd(Data);
@@ -39,9 +40,10 @@ mac=prob.mac;
     % save (strcat('temp_data\Data1.mat'));
 
 
-    Iteration=min(n*15,5000);
+    Iteration=min(n*15,3000);
 
-    miso('datainput_dp',Iteration, 'rbf_c', [], 'slhd', 'cp4',[],Data); %SODA-ADM
+    % miso('datainput_dp',Iteration, 'rbf_c', [], 'slhd', 'cp4',[],Data); %SODA-ADM
+    miso('datainput_dp',Iteration, 'rbf_c', [], 'slhd', 'soda_adm_fu',[],Data); %the new SODA-ADM
 
 % [xbest, fbest] = miso('datainput_dp',Iteration, 'rbf_c', [], 'slhd', 'cp6',[],Data); %SODA-ADM-DP
 

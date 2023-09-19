@@ -218,8 +218,8 @@ Data.xbest=Data.S(fbest_ID,:); %best point so far
 %% sampling
 if strcmp(Data.sampling, 'cp') %candidates by perturbation of randomly selected variables
     sol =  cp(Data);
-elseif strcmp(Data.sampling, 'cp1') %target value strategy   
-    sol =  cp1(Data);
+elseif strcmp(Data.sampling, 'soda_adm_fu') %target value strategy   
+    sol =  soda_adm_fu(Data);
 elseif strcmp(Data.sampling, 'cp2') %target value strategy   
     sol =  cp2(Data);
 elseif strcmp(Data.sampling, 'cp3') %target value strategy   
