@@ -19,9 +19,8 @@ end
 function dist = cal_dist(x,y,Data)
 n=numel(x);
 dist=0;
-
 for i=1:n
-    if ismember(i,Data.category)
+    if i>=Data.category(1) && i<=Data.category(end)
         if x(i)~=y(i)
             dist=dist+1;
         end
