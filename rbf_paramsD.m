@@ -19,7 +19,8 @@ function [lambda, gamma] = rbf_params(Data, rbf_flag)
 %--------------------------------------------------------------------------
 
 
-distances=pdist2(Data.S,Data.S); %compute pairwise dstances between points in S, pdist2 is MATLAB built-in function  成对的距离
+distances=mydist(Data.S,Data);
+% distances=pdist2(Data.S,Data.S); %compute pairwise dstances between points in S, pdist2 is MATLAB built-in function  成对的距离
 if strcmp(rbf_flag,'cub') %cubic RBF  立方
     PairwiseDistance=distances.^3; 
 elseif strcmp(rbf_flag,'lin') %linear RBF  线性
