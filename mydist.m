@@ -17,16 +17,22 @@ end
 end
 
 function dist = cal_dist(x,y,Data)
-n=numel(x);
-dist=0;
-for i=1:n
-    if i>=Data.category(1) && i<=Data.category(end)
-        if x(i)~=y(i)
-            dist=dist+1;
-        end
-    else
-        dist=dist+(y(i)-x(i))^2;
-    end
-end
-dist=sqrt(dist);
+res=y-x;
+res=res.^2;
+log=res~=0;
+res(Data.category(1):Data.category(end))=double(log(Data.category(1):Data.category(end)));
+dist=sqrt(sum(res));
+
+% n=numel(x);
+% dist=0;
+% for i=1:n
+%     if i>=Data.category(1) && i<=Data.category(end)
+%         if x(i)~=y(i)
+%             dist=dist+1;
+%         end
+%     else
+%         dist=dist+(y(i)-x(i))^2;
+%     end
+% end
+% dist=sqrt(dist);
 end
