@@ -1,6 +1,6 @@
 clc;clear;
 
-mac_array=[5,10,20];
+mac_array=[20,10,5];
 d_array=[1,2];
 mt_array=[3,9];
 
