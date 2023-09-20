@@ -15,7 +15,7 @@ mac=prob.mac;
 
     Data.xup=[2:n,repelem([mac],n)];
     Data.integer=[1:Dim]; %indices of integer variables
-    Data.category=[n:Dim]; %indices of category integer variables
+    Data.category=[1:Dim]; %indices of category integer variables
     Data.continuous=[]; %indices of continuous variables
 
     InitialPoints = slhd(Data);
